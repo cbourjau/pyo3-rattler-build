@@ -1,0 +1,34 @@
+context:
+  version: "0.11.9"
+
+package:
+  name: pyo3-rattler-build
+  version: ${{ version }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  script:
+    - $BUILD_PREFIX/bin/python -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - maturin
+    - python
+    - pip
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - pyo3_rattler_build
+        - pyo3_rattler_build
+      pip_check: true
+
+about:
+  homepage: https://github.com/killercup/cargo-edit
+  license: MIT
