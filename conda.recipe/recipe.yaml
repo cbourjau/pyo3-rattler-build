@@ -1,5 +1,5 @@
 context:
-  version: "0.11.9"
+  version: "0.1.0"
 
 package:
   name: pyo3-rattler-build
@@ -11,10 +11,15 @@ source:
 build:
   number: 0
   script:
-    - $BUILD_PREFIX/bin/python -m pip install . -vv
+    - maturin build --release -o wheels
+    - pip install wheels/*.whl -vv
+  files:
+    exclude:
+      - .cargo/
+      - "**/*.pyc"
 
 requirements:
-  build:
+  host:
     - ${{ compiler('rust') }}
     - maturin
     - python
@@ -26,9 +31,9 @@ tests:
   - python:
       imports:
         - pyo3_rattler_build
-        - pyo3_rattler_build
       pip_check: true
+  - script:
+      - python -c "import pyo3_rattler_build; print(dir(pyo3_rattler_build)); print(dir(pyo3_rattler_build.sum_as_string))"
 
 about:
-  homepage: https://github.com/killercup/cargo-edit
   license: MIT
