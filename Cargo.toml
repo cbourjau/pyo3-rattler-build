@@ -9,4 +9,4 @@ name = "pyo3_rattler_build"
 crate-type = ["cdylib"]
 
 [dependencies]
-pyo3 = "0.22.0"
+pyo3 = "0.20.0"

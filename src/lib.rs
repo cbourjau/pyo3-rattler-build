@@ -8,7 +8,7 @@ fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn pyo3_rattler_build(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn pyo3_rattler_build(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
     Ok(())
 }
