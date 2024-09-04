@@ -10,22 +10,17 @@ source:
 
 build:
   number: 0
-  dynamic_linking:
-    binary_relocation: false
   script:
     - maturin build --release -o wheels
-    - pip install wheels/*.whl -vv
-  files:
-    exclude:
-      - .cargo/
-      - "**/*.pyc"
+    - pip install wheels/*.whl -vv --no-cache-dir --prefix=${PREFIX}
 
 requirements:
-  host:
+  build:
     - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
     - maturin
-    - python
     - pip
+    - python
   run:
     - python
 
