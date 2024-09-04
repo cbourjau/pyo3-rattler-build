@@ -25,12 +25,8 @@ pyo3-rattler-build = { path = ".", editable = true }
 [tool.pixi.tasks]
 test = "pytest tests"
 
-[tool.pixi.feature.rattler-build.dependencies]
-rattler-build = "*"
-
 [tool.pixi.dependencies]
 rattler-build = ">=0.20.0,<0.21"
 maturin = ">=1.7.0,<2"
 pip = ">=24.2,<25"
 pytest = ">=8.3.2,<9"
-
