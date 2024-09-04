@@ -622,7 +622,7 @@ packages:
   name: pyo3-rattler-build
   version: 0.1.0
   path: .
-  sha256: 4a82aa62b54495a0cf79a744ae9068978552e4b217dce17513b7b0644c019587
+  sha256: 7d34d204f25d837a92eb03a9d76052769bee4beba953f4512bb426c2511a3f04
   requires_python: '>=3.10'
   editable: true
 - kind: conda
